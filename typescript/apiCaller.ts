@@ -2,7 +2,29 @@ import { ISignup, ILogin, IGetProfileReturn, IUpdateProfileReturn, IResetPasswor
 import { apiClient } from './apiConfig';
 import { apiCall } from './apiHelper';
 
-const authAPIEndpoints = {
+interface IAuthAPI {
+    signup: (data: ISignup) => Promise<{ success: boolean, data?: any, error?: string }>;
+    login: (data: ILogin) => Promise<{ success: boolean, data?: any, error?: string }>;
+    updateProfile: (id: number, data: Partial<ISignup>) => Promise<{ success: boolean, data?: IUpdateProfileReturn, error?: string }>;
+    verifyEmail: (code: string) => Promise<{ success: boolean, data?: any, error?: string }>;
+    resendEmailVerification: (data: { email: string }) => Promise<{ success: boolean, data?: any, error?: string }>;
+    getProfile: (id: number) => Promise<{ success: boolean, data?: IGetProfileReturn, error?: string }>;
+    forgotPassword: (email: string) => Promise<{ success: boolean, data?: any, error?: string }>;
+    resetPassword: (code: string, password: string) => Promise<{ success: boolean, data?: IResetPasswordReturn, error?: string }>;
+}
+
+interface IAuthEndpoints {
+    signUp: string;
+    login: string;
+    updateProfile: string;
+    verifyEmail: (code: string) => string;
+    resendEmailVerification: string;
+    fetchProfile: string;
+    forgotPassword: string;
+    resetPassword: string;
+}
+
+export const authAPIEndpoints: IAuthEndpoints = {
     signUp: '/auth/signup',
     login: '/auth/login',
     updateProfile: '/profile/update',
@@ -13,7 +35,7 @@ const authAPIEndpoints = {
     resetPassword: '/recovery/reset-password'
 };
 
-export const authAPI = {
+export const authAPI: IAuthAPI = {
     signup: (data: ISignup) =>
         apiCall('signUp', () => apiClient.post(authAPIEndpoints.signUp, data), 'Signup successful', 'Signup failed'),
 
