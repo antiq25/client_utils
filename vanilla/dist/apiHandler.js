@@ -2,6 +2,7 @@ import { authAPI } from './apiCaller.js';
 export const showSuccessMessage = (type, message) => console.log(generateMessage('success', type, message));
 export const showErrorMessage = (type, message) => console.log(generateMessage('error', type, message));
 export const generateMessage = (messageType, type, message) => `[${messageType.toUpperCase()}] ${type}: ${message}`;
+
 export const handleAPIRequest = async (apiCall, args, type = "") => {
     try {
         const data = await apiCall(...args);

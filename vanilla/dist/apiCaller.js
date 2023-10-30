@@ -1,6 +1,6 @@
-import { apiClient } from '../dist/apiConfig.js';
-import { apiCall } from '../dist/apiHelper.js';
-const authAPIEndpoints = {
+import { apiClient } from '../dist/apiConfig';
+import { apiCall } from '../dist/apiHelper';
+export const authAPIEndpoints = {
     signUp: '/auth/signup',
     login: '/auth/login',
     updateProfile: '/profile/update',
@@ -20,10 +20,10 @@ export const authAPI = {
         }
         return response;
     },
-    updateProfile: (id, data) => apiCall('updateProfile', () => apiClient.put(authAPIEndpoints.updateProfile, data), 'Profile updated', 'Updating profile failed'),
+    updateProfile: (id, data) => apiCall('updateProfile', () => apiClient.put(`${authAPIEndpoints.updateProfile}/${id}`, data), 'Profile updated', 'Updating profile failed'),
     verifyEmail: (code) => apiCall('verifyEmail', () => apiClient.get(authAPIEndpoints.verifyEmail(code)), 'Email verified', 'Email verification failed'),
     resendEmailVerification: (data) => apiCall('resendEmailVerification', () => apiClient.post(authAPIEndpoints.resendEmailVerification, data), 'Verification email resent', 'Resending verification email failed'),
-    getProfile: (id) => apiCall('fetchProfile', () => apiClient.get(authAPIEndpoints.fetchProfile), 'Profile fetched', 'Fetching profile failed'),
+    getProfile: (id) => apiCall('fetchProfile', () => apiClient.get(`${authAPIEndpoints.fetchProfile}/${id}`), 'Profile fetched', 'Fetching profile failed'),
     forgotPassword: (email) => apiCall('forgotPassword', () => apiClient.post(authAPIEndpoints.forgotPassword, { email }), 'Forgot password email sent', 'Forgot password failed'),
     resetPassword: (code, password) => apiCall('resetPassword', () => apiClient.post(authAPIEndpoints.resetPassword, { code, password }), 'Password reset successful', 'Password reset failed')
 };

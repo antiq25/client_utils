@@ -25,9 +25,35 @@
     <button id="loginButton">Login</button>
 </div>
 
-<!-- Include the necessary scripts -->
-<!-- Include the necessary scripts -->
+<h3>Create a Listing</h3>
+<form id="create-listing-form">
+    User ID: <input type="number" name="userId" required><br>
+    Listing Name: <input type="text" name="name" required><br>
+    Reviews URL: <input type="text" name="reviews_url" required><br>
+    Description: <input type="text" name="description"><br>
+    <input type="submit" value="Create Listing">
+</form>
 
+<h3>Get a Listing</h3>
+<form id="get-listing-form">
+    User ID: <input type="number" name="userId" required><br>
+    Listing Name (optional): <input type="text" name="listingName"><br>
+    <input type="submit" value="Get Listing">
+</form>
+
+<h3>Fetch Reviews</h3>
+<form id="fetch-reviews-form">
+    User ID: <input type="number" name="userId" required><br>
+    Listing ID: <input type="number" name="listingId" required><br>
+    Max Reviews: <input type="number" name="max_reviews" required><br>
+    URL: <input type="text" name="url" required><br>
+    <input type="submit" value="Fetch Reviews">
+</form>
+
+
+
+<script type="module" src="./dist/scrape.js"></script>
+<script type="module" src="./dist/apiDasher.js"></script>
 <script type="module" src="./dist/axios.min.js"></script>
 <script type="module" src="./dist/apiConfig.js"></script>
 <script type="module" src="./dist/apiHelper.js"></script>
