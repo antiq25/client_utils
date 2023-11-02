@@ -1,4 +1,5 @@
 import axios, { AxiosError } from 'axios'
+// import axios from 'https://cdn.jsdelivr.net/npm/axios@1.6.0/+esm'
 
 export const apiClient = axios.create({
   baseURL: 'http://localhost:3000/api/v1',
@@ -8,8 +9,6 @@ export const apiClient = axios.create({
   withCredentials: true
 })
 
-//  conditionally set the bearer token if the request calls for it & store the server jwt.
-//  intercept if token doesnt match
 apiClient.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token')
@@ -24,13 +23,3 @@ apiClient.interceptors.request.use(
   }
 )
 
-apiClient.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    console.error(error.response?.data)
-    const clientErrorMessage = error.response?.data?.forClient
-      ? error.response.data.message
-      : 'Something went wrong. Please try again later.'
-    return Promise.reject(clientErrorMessage)
-  }
-)

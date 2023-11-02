@@ -1,10 +1,4 @@
-import {
-  ISignup,
-  ILogin,
-  IGetProfileReturn,
-  IUpdateProfileReturn,
-  IResetPasswordReturn
-} from './interfaces'
+import { ISignup, ILogin } from './interfaces'
 import { apiClient } from './apiConfig.js'
 import { apiCall } from './apiHelper.js'
 
@@ -28,21 +22,20 @@ export const authAPI = {
       'Signup failed'
     ),
 
-  login: async (data: ILogin) => {
-    const response = await apiCall(
+  login: (data: ILogin) =>
+    apiCall(
       'login',
       () => apiClient.post(authAPIEndpoints.login, data),
       'Login successful',
       'Login failed'
-    )
+    ).then(response => {
+      // After a successful login, if there is a token, store it.
+      if (response.success && response.data?.token?.token) {
+        localStorage.setItem('token', response.data.token.token);
+      }
+      return response; // This maintains the same structure as the apiCall response.
+    }),
 
-    const { success, data: responseData } = response
-    if (success && responseData?.token?.token) {
-      localStorage.setItem('token', responseData.token.token)
-    }
-
-    return response
-  },
 
   updateProfile: (id: number, data: Partial<ISignup>) =>
     apiCall(

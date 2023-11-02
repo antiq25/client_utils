@@ -19,8 +19,10 @@ interface ILoginReturn {
   token: string
 }
 interface IAuth {
-  _signup: (data: ISignup) => Promise<ISignupReturn>
-  _login: (data: ILogin) => Promise<ILoginReturn>
+  signup: (data: ISignup) => Promise<ISignupReturn>
+  login: (data: ILogin) => Promise<ILoginReturn>
+  verifyEmail: (code: string) => Promise<void>
+  resendEmailVerification: (data: { email: string }) => Promise<void>
 }
 // ----------------------END----------------------------------
 
@@ -28,8 +30,8 @@ interface IAuth {
 interface IGetProfileReturn extends ISignupReturn {}
 interface IUpdateProfileReturn extends ISignupReturn {}
 interface IProfileService {
-  _getProfile: (id: number) => Promise<IGetProfileReturn>
-  _updateProfile: (id: number, data: any) => Promise<IUpdateProfileReturn>
+  getProfile: (id: number) => Promise<IGetProfileReturn>
+  updateProfile: (id: number, data: any) => Promise<IUpdateProfileReturn>
 }
 // ----------------------END----------------------------------
 
@@ -39,8 +41,8 @@ interface IResetPasswordReturn {
   email: string
 }
 interface IRecoveryService {
-  _forgotPassword: (email: string) => Promise<void>
-  _resetPassword: (
+  forgotPassword: (email: string) => Promise<void>
+  resetPassword: (
     token: string,
     password: string
   ) => Promise<IResetPasswordReturn>

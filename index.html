@@ -1,125 +1,138 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
-<head>
+  <head>
     <title>API Handler</title>
-</head>
-html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>API Calls Example</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-    <h1>API Calls Example</h1>
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Your App</title>
-    </head>
-    <body>
+      </head>
+      <body>
         <h1>Signup</h1>
+        <!-- Signup Form -->
         <form id="signupForm">
-            <label for="signupEmail">Email:</label>
-            <input type="email" id="signupEmail" required><br>
-    
-            <label for="signupPassword">Password:</label>
-            <input type="password" id="signupPassword" required><br>
-    
-            <label for="signupFirstName">First Name:</label>
-            <input type="text" id="signupFirstName" required><br>
-    
-            <label for="signupLastName">Last Name:</label>
-            <input type="text" id="signupLastName" required><br>
-    
-            <button type="submit">Signup</button>
+          <label>Email: <input type="email" id="signupEmail" /></label><br />
+          <label>Password: <input type="password" id="signupPassword" /></label
+          ><br />
+          <label>First Name: <input type="text" id="signupFirstName" /></label
+          ><br />
+          <label>Last Name: <input type="text" id="signupLastName" /></label
+          ><br />
+          <button type="submit">Signup</button>
         </form>
-    
-        <h1>Login</h1>
+
+        <!-- Login Form -->
         <form id="loginForm">
-            <label for="loginEmail">Email:</label>
-            <input type="email" id="loginEmail" required><br>
-    
-            <label for="loginPassword">Password:</label>
-            <input type="password" id="loginPassword" required><br>
-    
-            <button type="submit">Login</button>
+          <label>Email: <input type="email" id="loginEmail" /></label><br />
+          <label>Password: <input type="password" id="loginPassword" /></label
+          ><br />
+          <button type="submit">Login</button>
         </form>
-    
-        <h1>Verify Email</h1>
+
+        <!-- Verify Email Form -->
         <form id="verifyEmailForm">
-            <label for="verifyEmailCode">Verification Code:</label>
-            <input type="text" id="verifyEmailCode" required><br>
-    
-            <button type="submit">Verify Email</button>
+          <label>Code: <input type="text" id="verifyEmailCode" /></label><br />
+          <button type="submit">Verify Email</button>
         </form>
-    
-        <h1>Resend Verification Email</h1>
-        <form id="resendVerificationEmailForm">
-            <label for="resendVerificationEmail">Email:</label>
-            <input type="email" id="resendVerificationEmail" required><br>
-    
-            <button type="submit">Resend Verification Email</button>
+
+        <!-- Resend Email Verification Form -->
+        <form id="resendEmailVerificationForm">
+          <label
+            >Email: <input type="email" id="resendVerificationEmail" /></label
+          ><br />
+          <button type="submit">>Resend Email Verification</button>
         </form>
-    
-        <h1>Get Profile</h1>
+
+        <!-- Get Profile Form -->
         <form id="getProfileForm">
-            <label for="getProfileId">User ID:</label>
-            <input type="text" id="getProfileId" required><br>
-    
-            <button type="submit">Get Profile</button>
+          <label>ID: <input type="number" id="getProfileId" disabled /></label
+          ><br />
+          <!-- Disabled since the ID is inferred from the token -->
+          <button type="submit">Get Profile</button>
         </form>
-    
-        <h1>Update Profile</h1>
+
+        <!-- Update Profile Form -->
         <form id="updateProfileForm">
-            <label for="updateProfileId">User ID:</label>
-            <input type="text" id="updateProfileId" required><br>
-    
-            <label for="updateProfileData">Profile Data:</label>
-            <input type="text" id="updateProfileData" required><br>
-    
-            <button type="submit">Update Profile</button>
+          <label>First Name: <input type="text" id="firstName" /></label><br />
+          <label>Last Name: <input type="text" id="lastName" /></label><br />
+          <button type="submit">Update Profile</button>
         </form>
-    
-        <h1>Forgot Password</h1>
+
+        <!-- Forgot Password Form -->
         <form id="forgotPasswordForm">
-            <label for="forgotPasswordEmail">Email:</label>
-            <input type="email" id="forgotPasswordEmail" required><br>
-    
-            <button type="submit">Forgot Password</button>
+          <label>Email: <input type="email" id="forgotPasswordEmail" /></label
+          ><br />
+          <button type="submit">>Forgot Password</button>
         </form>
-    
-        <h1>Reset Password</h1>
+
+        <!-- Reset Password Form -->
         <form id="resetPasswordForm">
-            <label for="resetPasswordToken">Reset Token:</label>
-            <input type="text" id="resetPasswordToken" required><br>
-    
-            <label for="resetPassword">New Password:</label>
-            <input type="password" id="resetPassword" required><br>
-    
-            <button type="submit">Reset Password</button>
+          <label>Token: <input type="text" id="resetPasswordToken" /></label
+          ><br />
+          <label>Password: <input type="password" id="resetPassword" /></label
+          ><br />
+          <button type="submit">Reset Password</button>
         </form>
-    
-    
-    <script type="module" src="./vanilla//dist/axios.min.js"></script>
 
-    <script type="module" src="./api/dist/apiConfig.js"></script>
-    <script type="module" src="./api/dist/apiHandler.js"></script>
-    <script type="module" src="./api/dist/apiHelper.js"></script>
-    <script type="module" src="./api/dist/select.js"></script>
-    <script type="module" src="./api/dist/eventHandler.js"></script>
-</body>
+        <h2>Create Listing</h2>
+    <form id="create-listing-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
 
-</html>
+        <label for="reviews_url">Reviews URL:</label>
+        <input type="text" id="reviews_url" name="reviews_url" required><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description"></textarea><br>
+
+        <button type="submit">Create Listing</button>
+    </form>
+
+    <h2>Get Listing</h2>
+    <form id="get-listing-form">
+        <label for="listingName">Listing Name:</label>
+        <input type="text" id="listingName" name="listingName"><br>
+
+        <button type="submit">Get Listing</button>
+    </form>
+
+    <h2>Fetch Reviews</h2>
+    <form id="fetch-reviews-form">
+        <label for="listingId">Listing ID:</label>
+        <input type="number" id="listingId" name="listingId" required><br>
+
+        <label for="max_reviews">Max Reviews:</label>
+        <input type="number" id="max_reviews" name="max_reviews" required placeholder="99999"><br>
+
+        <button type="submit">Fetch Reviews</button>
+    </form>
 
 
+        </div>
+        <div id="error-message" style="color: red;"></div>
+        <div id="success-message" style="color: rgb(0, 255, 4);"></div>
 
-</body>
 
+        
+        <script type="module" src="./api/dist/dashboard/locateScrapes.js"></script>
+        <script type="module" src="./api/dist/dashboard/interDash.js"></script>
+        <script type="module" src="./api/dist/apiConfig.js"></script>
+        <script type="module" src="./api/dist/apiHelper.js"></script>
+        <script type="module" src="./api/dist/api.wrap.js"></script>
+        <script type="module" src="./api/dist/apiCaller.js"></script>
+        <script
+          type="module"
+          src="./api/dist/utility/locateElement.js"
+        ></script>
+        <script type="module" src="./api/dist/utility/eventHandler.js"></script>
+      </body>
+    </html>
+  </body>
 </html>

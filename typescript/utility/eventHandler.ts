@@ -1,4 +1,4 @@
-import * as domHandlers from './locateElement'
+import * as domHandlers from './locateElement.js'
 
 document
   .getElementById('signupForm')!
@@ -22,7 +22,7 @@ document
   })
 
 document
-  .getElementById('resendVerificationEmailForm')!
+  .getElementById('resendVerificationEmail')!
   .addEventListener('submit', async (event: Event) => {
     event.preventDefault()
     await domHandlers.handleResendEmailVerification()
