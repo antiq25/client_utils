@@ -25,14 +25,14 @@ https://localhost:4443 {
 }
 EOF
     echo "Starting reverse proxy on http://localhost:${server_port}/"
-    caddy run --config Caddyfile 
+    caddy start --config Caddyfile
 }
 
 servefiles() {
     local port="$1"
     echo "Starting server on http://localhost:${port}/"
     python3 -m http.server "$port"
-    
+
     if [[ $? -ne 0 ]]; then
         echo "Failed to start server on port ${port}"
         exit 1
@@ -46,6 +46,10 @@ main() {
     local server_port="${1:-8000}"
     local api_port="${2:-3001}"
     askToProxy "$server_port" "$api_port"
+    sh start_server
 }
 
 main "$@"
+
+
+

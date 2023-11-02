@@ -8,6 +8,11 @@
     "@types/jsonwebtoken": "^9.0.3",
     "@types/node": "^20.7.0",
     "@types/nodemailer": "^6.4.13",
+    "eslint": "^8.52.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^9.0.0",
+    "prettier": "^3.0.3",
     "prisma": "^5.4.2",
     "typescript": "^5.2.2"
   },
@@ -29,11 +34,10 @@
     "jsonwebtoken": "^9.0.2",
     "nodemailer": "^6.9.6",
     "nodemon": "^3.0.1",
-    "prettier": "^3.0.3",
     "puppeteer": "^21.4.0"
   },
   "scripts": {
-    "dev": "tsc && nodemon dist/index.js",
+    "client": "tsc && yarn run dev:db && sh run_client.sh 3001 3000",
     "dev:db": "docker compose up -d && prisma migrate dev --preview-feature",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
   }
