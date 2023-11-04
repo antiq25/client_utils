@@ -7,7 +7,7 @@ export const dashboardAPIEndpoints: IDashboardEndpoints = {
   fetchReviews: '/dashboard/fetch-reviews'
 }
 
-interface IDashboardAPI {
+export interface IDashboardAPI {
   fetchListing(listingName: string | undefined): unknown;
   createListing: (
     userId: number,
@@ -27,7 +27,7 @@ interface IDashboardAPI {
   ) => Promise<{ success: boolean; data?: any; error?: string }>
 }
 
-interface IDashboardEndpoints {
+export interface IDashboardEndpoints {
   createListing: string
   getListing: string
   fetchReviews: string

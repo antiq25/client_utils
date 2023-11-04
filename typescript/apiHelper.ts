@@ -1,5 +1,4 @@
 import { AxiosResponse } from 'axios';
-import { apiClient } from './apiConfig';
 
 // modular API call wrapper to handle all calls, errors, and successes.
 export const apiCall = async (

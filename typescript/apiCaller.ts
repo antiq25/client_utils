@@ -2,7 +2,7 @@ import { ISignup, ILogin } from './interfaces'
 import { apiClient } from './apiConfig.js'
 import { apiCall } from './apiHelper.js'
 
-const authAPIEndpoints = {
+export const authAPIEndpoints = {
   signUp: '/auth/signup',
   login: '/auth/login',
   updateProfile: '/profile/update',

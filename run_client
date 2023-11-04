@@ -48,6 +48,8 @@ main() {
     askToProxy "$server_port" "$api_port"
 }
 
+command pkill -9 KILL Python
+
 main "$@"
 
 
